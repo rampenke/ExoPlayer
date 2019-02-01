@@ -15,6 +15,7 @@
  */
 package com.google.android.exoplayer2.source.rtp.extractor;
 
+import android.util.Log;
 import android.util.SparseArray;
 
 import com.google.android.exoplayer2.C;
@@ -277,10 +278,10 @@ import java.util.List;
 
         } else {
 
-            if (((fragments.sequence() + 1) % 65536) != sequenceNumber) {
-                fragments.reset();
-                return;
-            }
+            //if (((fragments.sequence() + 1) % 65536) != sequenceNumber) {
+            //    fragments.reset();
+            //    return;
+            //}
 
             fragments.sequence(sequenceNumber);
 
@@ -308,7 +309,10 @@ import java.util.List;
                     sampleReader.consume(nalUnitType,
                           new ParsableByteArray(fragments.nalData, fragments.nalLength));
                 }
-
+                StringBuilder sb = new StringBuilder();
+                for(int i=0;i < 4; i++)
+                    sb.append(String.format("%02x", data[4+i]));
+                Log.d("rtsp", "nalLength=" + fragments.nalLength + "data=" + sb );
                 fragments.reset();
             }
         }

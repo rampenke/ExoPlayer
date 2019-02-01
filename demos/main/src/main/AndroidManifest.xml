@@ -49,6 +49,7 @@
         <category android:name="android.intent.category.BROWSABLE"/>
         <data android:scheme="http"/>
         <data android:scheme="https"/>
+        <data android:scheme="rtsp"/>
         <data android:scheme="content"/>
         <data android:scheme="asset"/>
         <data android:scheme="file"/>
@@ -67,6 +68,7 @@
         <category android:name="android.intent.category.DEFAULT"/>
         <data android:scheme="http"/>
         <data android:scheme="https"/>
+        <data android:scheme="rtsp"/>
         <data android:scheme="content"/>
         <data android:scheme="asset"/>
         <data android:scheme="file"/>
